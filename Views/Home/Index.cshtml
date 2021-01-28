@@ -1,8 +1,11 @@
-﻿@{
+﻿@model PALProgrammingWebTest.ViewModels.UsersVM
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<ul class="list-group">
+    @foreach (Users u in Model.All) {
+        <li class="list-group-item"><a href="/Edit/@u.UserID">@u.FirstName @u.LastName</a></li>        
+    }
+</ul>

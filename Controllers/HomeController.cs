@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using PALProgrammingWebTest.Models;
+using PALProgrammingWebTest.ViewModels;
 
 namespace PALProgrammingWebTest.Controllers {
     public class HomeController : Controller {
@@ -18,7 +19,18 @@ namespace PALProgrammingWebTest.Controllers {
         }
 
         public IActionResult Index() {
-            return View();
+            return View(new UsersVM());
+        }
+
+        [Route("/Edit/{id}")]
+        public IActionResult Edit(int id) {
+            return View("~/Views/Home/EditUser.cshtml", new UsersVM(id));
+        }
+
+        [Route("/Save/")]
+        public IActionResult Save(Users u) {
+            new UsersVM().Save(u);
+            return Redirect("/?success=true");
         }
 
         public IActionResult Privacy() {

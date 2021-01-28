@@ -1,0 +1,36 @@
+﻿@model PALProgrammingWebTest.ViewModels.UsersVM
+
+<form method="post" action="/SaveUser">
+
+    <input type="hidden" id="UserID" name="UserID" value="@Model.User.UserID" />
+    <input type="hidden" id="TimeStamp" name="TimeStamp" value="@Model.User.TimeStamp" />
+    <input type="hidden" id="DeleteFlag" name="DeleteFlag" value="@Model.User.DeleteFlag" />
+
+    <div class="form-group">
+        <label for="FirstName" class="col-form-label">First Name</label>
+        <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.User.FirstName" />
+    </div>
+
+    <div class="form-group">
+        <label for="LastName" class="col-form-label">Last Name</label>
+        <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.User.LastName" />
+    </div>
+
+    <div class="form-group">
+        <label for="Email" class="col-form-label">Email</label>
+        <input type="text" class="form-control" id="Email" name="Email" value="@Model.User.Email" />
+    </div>
+
+    <div class="form-group">
+        <label for="Password" class="col-form-label">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" value="@Model.User.Password" />
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="IsTeacher" name="IsTeacher" checked="@(Model.User.IsTeacher)">
+        <label class="form-check-label" for="exampleCheck1">Is Teacher</label>
+    </div>
+
+    <button class="btn btn-dark" type="submit"><i class="fas fa-save"></i> Save</button>
+
+</form>
